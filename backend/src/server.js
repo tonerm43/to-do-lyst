@@ -1,14 +1,15 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
-const PORT = 4000;
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./db.js');
 const itemRoute = require('./item.route');
 
+const app = express();
+const PORT = 3000;
+
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(
+mongoose.connect(config.db, { useNewUrlParser: true, useUnifiedTopology: true }).then(
     () => { console.log('Database is connected') },
     (err) => { console.log('Can not connect to the database' + err) },
 );

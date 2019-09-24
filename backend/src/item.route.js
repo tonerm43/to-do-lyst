@@ -1,11 +1,9 @@
 const express = require('express');
-// eslint-disable-next-line new-cap
-const itemRoutes = express.Router();
-
-// Require Item model in our routes module
 const Item = require('./item.model');
 
-// Defined save route
+const itemRoutes = express.Router();
+
+// Save task
 itemRoutes.route('/add').post((req, res) => {
     const item = new Item(req.body);
     item.save()
@@ -17,7 +15,7 @@ itemRoutes.route('/add').post((req, res) => {
         });
 });
 
-// Defined get data(index or listing) route
+// Get all tasks
 itemRoutes.route('/').get((req, res) => {
     Item.find((err, items) => {
         if (err) {
@@ -28,7 +26,7 @@ itemRoutes.route('/').get((req, res) => {
     });
 });
 
-//  Defined update route
+//  Update task
 itemRoutes.route('/update/:id').post((req, res) => {
     Item.findById(req.params.id, (err, item) => {
         if (err) {
@@ -47,7 +45,7 @@ itemRoutes.route('/update/:id').post((req, res) => {
     });
 });
 
-// Defined delete | remove | destroy route
+// Delete task
 itemRoutes.route('/delete/:id').delete((req, res) => {
     Item.findByIdAndRemove({ _id: req.params.id }, (err) => {
         if (err) {

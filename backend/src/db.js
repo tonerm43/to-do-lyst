@@ -1,3 +1,3 @@
 module.exports = {
-    DB: 'mongodb://localhost:27017/todolystdb',
+    db: 'mongodb://localhost:27017/todolystdb',
 };
