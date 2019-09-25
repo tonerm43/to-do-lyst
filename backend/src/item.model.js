@@ -7,11 +7,11 @@ const Item = new Schema({
     description: {
         type: String,
     },
-    complete: {
+    completed: {
         type: Boolean,
     },
 }, {
-    collection: 'items',
+    collection: 'todos',
 });
 
 module.exports = mongoose.model('Item', Item);
