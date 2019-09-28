@@ -1,3 +1,12 @@
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 # Logs
 logs
 *.log
@@ -59,3 +68,9 @@ typings/
 
 # next.js build output
 .next
+
+# Mac directories
+.DS_Store
+
+# Vue build folder
+/dist
