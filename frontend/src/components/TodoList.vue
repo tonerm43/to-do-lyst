@@ -1,15 +1,20 @@
 <template>
   <div>
     <div v-bind:key="todo.id" v-for="todo in todos">
-      <p>{{ todo.description }}</p>
+      <TodoItem :todo="todo" v-on:del-todo="$emit('del-todo', todo._id)"/>
     </div>
   </div>
 </template>
 
 <script>
+import TodoItem from "./TodoItem";
+
 export default {
   name: "TodoList",
-  props: ["todos"]
+  components: {
+    TodoItem
+  },
+  props: ["todos"],
 }
 </script>
 

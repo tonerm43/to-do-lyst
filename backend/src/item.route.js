@@ -34,8 +34,7 @@ itemRoutes.route('/update/:id').post((req, res) => {
         } else if (!item) {
             res.status(404).send('data is not found');
         } else {
-            item.description = req.body.description;
-            item.completed = req.body.completed;
+            item.completed = !item.completed;
             item.save().then(() => {
                 res.json('Update complete');
             }).catch(() => {
